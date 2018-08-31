@@ -53119,7 +53119,8 @@ var CannerEditor = (_dec = (0, _slateToolbar2.default)(toolbarOptions), _dec2 = 
       var _props2 = this.props,
           value = _props2.value,
           onChange = _props2.onChange,
-          readOnly = _props2.readOnly;
+          readOnly = _props2.readOnly,
+          renderPlaceholder = _props2.renderPlaceholder;
 
       return React.createElement(_slateReact.Editor, {
         className: "markdown-body",

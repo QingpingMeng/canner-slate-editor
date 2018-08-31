@@ -243,7 +243,7 @@ class CannerEditor extends React.Component<EditorProps> {
   }
 
   render() {
-    const {value, onChange, readOnly} = this.props;
+    const {value, onChange, readOnly, renderPlaceholder} = this.props;
     return (
       <Editor 
         className="markdown-body"
