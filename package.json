@@ -62,7 +62,7 @@
     "lint": "prettier --write ./src/**/*.js && eslint ./src/**/*.js",
     "build:flow": "flow-copy-source -v -i '**/test/**' src lib",
     "clean": "rimraf lib dist",
-    "postinstall":"npm run install && npm run prepublish",
+    "postinstall":"npm install && npm run prepublish",
     "build": "babel src --out-dir lib && npm run build:flow",
     "prepublish": "npm run clean && npm run check:src && npm run build && npm run build:dist",
     "check:src": "npm run lint",
