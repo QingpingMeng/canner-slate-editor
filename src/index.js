@@ -86,12 +86,14 @@ type Props = {
   value: Value,
   onChange: (change: Change) => void,
   serviceConfig?: any,
+  renderPlaceholder: (props: any) => void,
   galleryConfig?: any
 }
 
 type EditorProps = {
   readOnly: boolean,
   value: Value,
+  renderPlaceholder: (props: any) => void,
   onChange: (change: Change) => void,
   serviceConfig?: any,
   galleryConfig?: any
@@ -193,7 +195,7 @@ export default class EditorComponent extends React.Component<Props, State> {
   }
 
   render() {
-    const {value, onChange, serviceConfig, galleryConfig, menuToolbarOption, readOnly, ...rest} = this.props;
+    const {value, onChange, serviceConfig, galleryConfig, menuToolbarOption, readOnly, renderPlaceholder, ...rest} = this.props;
     const {isFull} = this.state;
 
     return readOnly ? (
@@ -223,7 +225,7 @@ export default class EditorComponent extends React.Component<Props, State> {
           )
         }
         <EditorContainer isFull={isFull}>
-          <CannerEditor value={value} onChange={onChange} readOnly={readOnly} />
+          <CannerEditor renderPlaceholder={renderPlaceholder} value={value} onChange={onChange} readOnly={readOnly} />
         </EditorContainer>
       </Container>
     );
@@ -246,6 +248,7 @@ class CannerEditor extends React.Component<EditorProps> {
       <Editor 
         className="markdown-body"
         value={value}
+        renderPlaceholder={renderPlaceholder}
         readOnly={readOnly}
         onChange={onChange}
         plugins={plugins}
